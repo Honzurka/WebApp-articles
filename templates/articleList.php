@@ -20,6 +20,7 @@
         <span id="page-counter">Page count 0</span>
         <button type="button" id="create-button">Create article</button>
     </div>
+</div>
 
 <div id="dialog">
     <form method="POST" id="create-dialog">
@@ -31,8 +32,6 @@
             <button type="button" id="create-cancel">Cancel</button>
         </div>
     </form>
-<div class="dialog-bg">
-
 </div>
 
 <script src="/~11042132/cms/articleList.js"></script> <!-- root-relative address required for both articles and articles/ to work -->
