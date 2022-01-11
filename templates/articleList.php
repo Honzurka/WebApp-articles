@@ -20,17 +20,20 @@
         <span id="page-counter">Page count 0</span>
         <button type="button" id="create-button">Create article</button>
     </div>
-</div>
 
-<form method="POST" id="create-dialog">
-    <input type="hidden" name="action" value="create">
-    <label for="create-name">Name</label><br>
-    <input type="text" name="name" id="create-name" maxlength="32" required><br>
-    <div class="footer-menu">
-        <button type="submit" id="create-create">Create</button>
-        <button type="button" id="create-cancel">Cancel</button>
-    </div>
-</form>
+<div id="dialog">
+    <form method="POST" id="create-dialog">
+        <input type="hidden" name="action" value="create">
+        <label for="create-name">Name</label><br>
+        <input type="text" name="name" id="create-name" maxlength="32" required><br>
+        <div class="footer-menu">
+            <button type="submit" id="create-create">Create</button>
+            <button type="button" id="create-cancel">Cancel</button>
+        </div>
+    </form>
+<div class="dialog-bg">
+
+</div>
 
 <script src="/~11042132/cms/articleList.js"></script> <!-- root-relative address required for both articles and articles/ to work -->
 

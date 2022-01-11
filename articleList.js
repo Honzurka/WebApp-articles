@@ -49,7 +49,7 @@ function prevButtonClick() {
 }
 
 function createArticleClick() {
-    const dialog = document.getElementById("create-dialog");
+    const dialog = document.getElementById("dialog");
     dialog.style.display = "";
     document.getElementById("create-name").value = "";
     document.getElementById("create-create").style.visibility = "hidden";
@@ -98,6 +98,6 @@ document.getElementById("prev-button").onclick = prevButtonClick;
 document.getElementById("create-button").onclick = createArticleClick;
 
 
-document.getElementById("create-dialog").style.display = "none";
-document.getElementById("create-cancel").onclick = () => document.getElementById("create-dialog").style.display = "none";
+document.getElementById("dialog").style.display = "none";
+document.getElementById("create-cancel").onclick = () => document.getElementById("dialog").style.display = "none";
 document.getElementById("create-name").oninput = () => disableButtonOnEmptyInput("create-create", "create-name");
