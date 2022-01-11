@@ -41,6 +41,7 @@ class DBAccess {
     }
 
     public function populate() {
+        //add 2longNamexxxxxxxxxxxxxxxxxxxxxxy ?
         $query = "TRUNCATE TABLE articles";
         mysqli_query($this->connection, $query);
         unset($query);

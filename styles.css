@@ -1,0 +1,104 @@
+#create-dialog { /*--------------------------working on--------------------*/
+    position: fixed;
+    left: 20%;
+    top: 20%;
+    /* width: 100%; */
+    /* height: 100%; */
+    background-color: grey;
+    padding: 100px;
+}
+
+#article-list {
+    max-width: 500px;
+}
+
+#article-detail {
+    max-width: 300px;
+}
+
+#article-detail p {
+    padding: 0 10px 0 10px;
+}
+
+#article-edit {
+    max-width: 300px;
+}
+
+#article-edit input {
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+#article-edit textarea {
+    width: 100%;
+    height: 200px;
+    margin: 10px 0 10px 0;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+button {
+    padding: 10px 5px 10px 5px;
+    font-size: 100%;
+}
+
+
+/* */
+#all-articles {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin: 20px 0 20px 0;
+}
+
+/* flex */
+.footer-menu {
+    display: flex;
+    padding: 0 10px 0 10px;
+    justify-content: space-between;
+}
+
+.footer-menu button {
+    min-width: 100px;
+}
+
+#page-counter {
+    align-self: flex-end;
+}
+
+
+.articles-list-item {
+    display: flex;
+    padding: 5px 10px 5px 10px;
+    column-gap: 20px;
+}
+.article-name {
+    flex-basis: 33ch;
+}
+
+/* link styling */
+a.blue-text {
+    color: rgb(87, 165, 224);
+    text-decoration: none;
+    /* margin: 0 auto; */
+}
+
+.del-link {
+    color: rgb(231, 53, 53);
+    text-decoration: none;
+    /* margin: 0 auto; */
+}
+
+/* concrete button styling */
+#detail-edit {
+    background-color: rgb(87, 165, 224);
+}
+
+#edit-save {
+    background-color: limegreen;
+}
+
+#edit-bta {
+    background-color: rgb(231, 53, 53);
+}
