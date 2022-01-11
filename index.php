@@ -17,11 +17,12 @@ function filterName($name) {
 }
 
 function filterContent($content) {
-    if(!isset($content) || (is_string($content) && strlen($content) <= 1024)) {
+    if(isset($content) && is_string($content) && strlen($content) <= 1024) {
         return htmlspecialchars($content);
     }
     die("Bad content");
 }
+
 
 class DBAccess {
     private static $instance = null;

@@ -66,19 +66,19 @@ function delButtonClick(id) {
         }
         articles[0].parentNode.removeChild(deletedChild);
     }
+
     let fd = new FormData();
     fd.append("action", "delete");
     fd.append("delId", id);
 
-    let request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if(this.readyState === 4) {
-            delArticleId(id);
-            updatePage();
-        }
-    }
-    request.open("POST", "", true);
-    request.send(fd);
+    fetch("", { method: 'post', body: fd })
+        .then( success => { 
+                delArticleId(id);
+                updatePage(); 
+            }
+        )
+        .catch( e => console.log(`Error: deleting article ends with status code: ${e.status}.`)
+        );
 }
 
 //init
