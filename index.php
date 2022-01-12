@@ -133,6 +133,35 @@ class DBAccess {
             $this->unableToQueryDB();
         }        
     }
+
+    public function findSimilarIds($id) {
+        $result = []; //id => distance
+        // $nameById = [];
+
+        $id = filterId($id);
+        $currentArticleName = $this->getArticleById($id)['name'];
+
+        $stmt = mysqli_prepare($this->connection, "SELECT * FROM articles WHERE ID <> ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        if($queryResult = $stmt->get_result()) {
+            while($article = mysqli_fetch_assoc($queryResult)) {
+                $val = levenshtein($currentArticleName, $article['name']);
+                $result[$article['id']] = $val;
+                // $nameById[$article['id']] = $article['name'];
+            }
+        }
+        else {
+            $this->unableToQueryDB();
+        }
+
+        asort($result);
+        $result = array_keys($result);
+        $result = array_slice($result, 0, 3);
+        // var_dump($result);
+        
+        return $result;
+    }
 }
 
 define("TEMPLATE_PREFIX", __DIR__ . '/templates/');
@@ -155,6 +184,14 @@ function articleEdit($dba, $id) {
     require TEMPLATE_PREFIX . "articleEdit.php"; // name, content used in template
 }
 
+// function getDetailUrlFromIds($ids) {
+//     $result = [];
+//     foreach ($ids as $id) {
+//         array_push($result, "cms/article/$id");
+//     }
+//     return $result;
+// }
+
 
 // front controller
 if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
@@ -167,6 +204,14 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST' &&
     }
     else if($_POST['action'] === 'create') {
         $dba->createArticle($_POST['name']);
+    }
+    else if($_POST['action'] === 'getSimilar') {
+        header('Content-Type: application/json');
+
+        $result = $dba->findSimilarIds($_POST["id"]);
+        echo json_encode($result);
+
+        exit();
     }
 }
 
