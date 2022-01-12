@@ -71,7 +71,7 @@ function delButtonClick(id) {
     fd.append("action", "delete");
     fd.append("delId", id);
 
-    fetch("", { method: 'post', body: fd })
+    fetch("", { method: 'delete', body: fd })
         .then( success => { 
                 delArticleId(id);
                 updatePage(); 
